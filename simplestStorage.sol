@@ -9,4 +9,12 @@ contract SimpleStorage {
         favNum = _favNum;
     }
 
+    function retrieve() public view returns(uint256) {
+        return favNum;
+    } // view and pure functions doesn't spend gas
+    // view disallows modifications
+
+    function add() public pure returns(uint256) {
+        return (1+1);
+    }// no view on blockchain.
 }
