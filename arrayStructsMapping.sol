@@ -11,9 +11,16 @@ contract SimpleStorage {
     
     //Array
     People[] public people; //dynamic array
-
+    //calldata, memory, storage
+    
+    // calldata(cannot modify) and memory(can modify) exists temporarily storage(permanent modifyable) is default
     function addPerson (string memory _name, uint256 _favNum) public {
         People memory newPerson = People(_favNum,_name);
         people.push(newPerson);
+        nameTofavNum[_name] = _favNum;
     }
+
+    //mapping
+    mapping(string => uint256) public nameTofavNum;
+    // value stored above
 }
